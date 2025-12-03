@@ -1,0 +1,403 @@
+/* =========================
+   VARIABLES Y TEMAS
+   ========================= */
+:root {
+  --bg-color: #050510;
+  --bg-elevated: #111122;
+  --bg-elevated-soft: #161628;
+  --accent: #7c5cff;
+  --accent-soft: rgba(124, 92, 255, 0.15);
+  --accent-strong: #9f7bff;
+  --text-main: #f5f5ff;
+  --text-muted: #b3b3d9;
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme {
+  --bg-color: #f4f5fb;
+  --bg-elevated: #ffffff;
+  --bg-elevated-soft: #f9f9ff;
+  --accent: #5a3cff;
+  --accent-soft: rgba(90, 60, 255, 0.12);
+  --accent-strong: #7a5dff;
+  --text-main: #1b1b2b;
+  --text-muted: #676788;
+  --border-soft: rgba(0, 0, 0, 0.07);
+  --shadow-soft: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   RESETEO BÁSICO
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #141432 0, #050510 45%, #020208 100%);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =========================
+   LAYOUT GENERAL
+   ========================= */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 20, 0.96),
+    rgba(5, 5, 20, 0.86),
+    transparent
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 0.9rem;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.logo-text {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  position: relative;
+  padding-bottom: 0.15rem;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  border-radius: 999px;
+  transition: width 0.2s ease-out;
+}
+
+.main-nav a:hover {
+  color: var(--text-main);
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.theme-toggle {
+  border: none;
+  background: var(--bg-elevated-soft);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.4rem, 3.2vw + 1.8rem, 3.4rem);
+  margin: 0.3rem 0 0.5rem;
+}
+
+.tagline {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  color: var(--accent-strong);
+}
+
+.hero-description {
+  color: var(--text-muted);
+  max-width: 36rem;
+}
+
+.hero-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, background 0.15s ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: transparent;
+  border-color: var(--border-soft);
+  color: var(--text-main);
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.tertiary-btn {
+  background: var(--bg-elevated-soft);
+  color: var(--text-muted);
+  border-color: var(--border-soft);
+}
+
+.hero-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-photo img {
+  width: 260px;
+  height: 260px;
+  border-radius: 2rem;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================
+   SECCIONES GENERALES
+   ========================= */
+.section {
+  margin-bottom: 3.5rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: radial-gradient(circle at top left,
+    rgba(124, 92, 255, 0.08) 0,
+    rgba(10, 10, 30, 0.96) 40%,
+    rgba(5, 5, 16, 0.98) 100%);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.section p {
+  color: var(--text-muted);
+}
+
+/* =========================
+   HABILIDADES
+   ========================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.skill-card {
+  background: var(--bg-elevated-soft);
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--border-soft);
+}
+
+.skill-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.skill-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.skill-card li {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   PROYECTOS
+   ========================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-card {
+  background: var(--bg-elevated-soft);
+  border-radius: 1.2rem;
+  border: 1px solid var(--border-soft);
+  padding: 1.2rem 1.3rem 1.4rem;
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+media-wrapper,
+.project-card video {
+  width: 100%;
+}
+
+/* Contenedor del video */
+.media-wrapper {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+}
+
+.media-wrapper video {
+  display: block;
+  width: 100%;
+}
+
+/* =========================
+   CONTACTO
+   ========================= */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-item {
+  background: var(--bg-elevated-soft);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border-soft);
+}
+
+.contact-item a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.main-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-photo {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  main {
+    padding-top: 4.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .main-header {
+    gap: 0.75rem;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .hero {
+    gap: 1.8rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+}

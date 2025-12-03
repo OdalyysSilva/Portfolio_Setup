@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Setup - Odalys Silva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- model-viewer (para mostrar el .glb) -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo-area">
+      <span class="logo-symbol">{ }</span>
+      <span class="logo-text">Portfolio Setup</span>
+    </div>
+
+    <nav class="main-nav">
+      <a href="#about">Sobre mí</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema claro/oscuro">
+      🌙
+    </button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="tagline">Hola, soy</p>
+        <h1>OdalyysSilva</h1>
+        <p class="hero-description">
+          Estudiante de programación y entusiasta del 3D.  
+          Este proyecto combina un mini set-up de programador hecho en Blender,
+          con una página web responsiva e integrada con WebGL.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn primary-btn">Ver proyectos</a>
+          <a href="#contact" class="btn secondary-btn">Contactarme</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="assets/img/foto.jpg" alt="Foto de Odalys" />
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="about" class="section about">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy una estudiante apasionada por el desarrollo de software, el modelado 3D y la tecnología en general.
+        Me interesa crear experiencias interactivas donde se mezclen la programación, el diseño y la animación 3D.
+      </p>
+      <p>
+        Este proyecto forma parte de una actividad escolar donde debía crear un mini set-up de programador en Blender
+        y mostrarlo dentro de una página web usando tecnologías web modernas.
+      </p>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="skills" class="section skills">
+      <h2>Habilidades</h2>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>Programación</h3>
+          <ul>
+            <li>HTML &amp; CSS</li>
+            <li>JavaScript básico</li>
+            <li>Conceptos de desarrollo web</li>
+          </ul>
+        </article>
+
+        <article class="skill-card">
+          <h3>3D &amp; Diseño</h3>
+          <ul>
+            <li>Modelado en Blender</li>
+            <li>Texturizado básico</li>
+            <li>Exportación a GLB/GLTF</li>
+          </ul>
+        </article>
+
+        <article class="skill-card">
+          <h3>Herramientas</h3>
+          <ul>
+            <li>Blender</li>
+            <li>Git &amp; GitHub</li>
+            <li>Edición de video básica</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROYECTOS (incluye el modelo 3D) -->
+    <section id="projects" class="section projects">
+      <h2>Proyectos</h2>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>Mini Set-up de Programador 3D</h3>
+          <p>
+            Escena creada en Blender con escritorio, monitor, teclado, mouse, PC y un objeto extra creativo.
+            Exportado a formato <strong>GLB</strong> e integrado en esta página usando <code>&lt;model-viewer&gt;</code>.
+          </p>
+
+          <model-viewer 
+            src="assets/3d/Portfolio.glb"
+            alt="Mini set-up de programador en 3D"
+            camera-controls
+            auto-rotate
+            autoplay
+            exposure="1"
+            shadow-intensity="1"
+            style="width: 100%; height: 350px; border-radius: 1rem; overflow: hidden;">
+          >
+          </model-viewer>
+
+
+
+          <button id="lightToggle" class="btn tertiary-btn">
+            Cambiar ambiente de luz
+          </button>
+        </article>
+
+        <article class="project-card">
+          <h3>Proceso del Proyecto</h3>
+          <p>
+            Durante el desarrollo fui avanzando paso a paso: modelado del escritorio, monitor, teclado y demás elementos,
+            así como la parte web y la configuración de GitHub.
+          </p>
+
+          <div class="media-wrapper">
+            <video controls src="https://drive.google.com/file/d/1iqzUvumYavpSGLKMi1kZ-F8lBRJ5QPa5/view?usp=drive_link"></video>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="section contact">
+      <h2>Contacto</h2>
+      <p>
+        Si quieres ponerte en contacto conmigo o ver más de mis proyectos:
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h3>Email</h3>
+          <a href="mailto:tu_correo@example.com">tu_correo@example.com</a>
+        </div>
+        <div class="contact-item">
+          <h3>GitHub</h3>
+          <a href="https://github.com/OdalyysSilva" target="_blank" rel="noopener">
+            github.com/OdalyysSilva
+          </a>
+        </div>
+        <div class="contact-item">
+          <h3>Redes</h3>
+          <p>LinkedIn, X, etc. (opcional)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <p>&copy; <span id="currentYear"></span> OdalyysSilva — Portfolio Setup 3D</p>
+  </footer>
+</body>
+</html>
