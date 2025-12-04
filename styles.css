@@ -401,3 +401,32 @@ media-wrapper,
     padding: 1.5rem;
   }
 }
+
+.projects a {
+  color: #c8a3ff; /* lila suave */
+  font-weight: 600;
+}
+
+.projects a:hover {
+  color: #e5c8ff; /* lila más claro al pasar el mouse */
+  text-decoration: underline;
+}
+
+.skill-card ul {
+  margin-left: 1.2rem;
+  padding-left: 1rem;
+  list-style-type: disc; /* bolita clásica */
+}
+
+.skill-card li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.tagline {
+  font-size: 1.4rem;     /* Aumenta el tamaño */
+  letter-spacing: 2px;   /* Más separación para verse elegante */
+  text-transform: uppercase;
+  color: #c5b3ff;        /* Lila suave (opcional) */
+  font-weight: 600;
+}
