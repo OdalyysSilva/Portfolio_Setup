@@ -1,6 +1,6 @@
-// =========================
+
 // TEMA CLARO / OSCURO
-// =========================
+
 const body = document.body;
 const themeToggleBtn = document.getElementById("themeToggle");
 const THEME_KEY = "portfolio-theme";
@@ -26,18 +26,15 @@ if (themeToggleBtn) {
   });
 }
 
-// =========================
 // AÑO ACTUAL EN EL FOOTER
-// =========================
+
 const yearSpan = document.getElementById("currentYear");
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
-// =========================
-// INTERACCIÓN CON EL MODELO 3D
 // (cambiar iluminación ambiente)
-// =========================
+
 const lightToggleBtn = document.getElementById("lightToggle");
 const modelViewer = document.querySelector("model-viewer");
 
